@@ -1,12 +1,14 @@
 package br.com.alura.loja.modelo;
 
+import com.thoughtworks.xstream.XStream;
+
 public class Projeto {
 
-	long id;
+	private long id;
 	
-	String nome;
+	private String nome;
 	
-	int anoDeInicio;
+	private int anoDeInicio;
 	
 	public Projeto() {	}
 	
@@ -15,6 +17,14 @@ public class Projeto {
 		this.id = id;
 		this.nome = nome;
 		this.anoDeInicio = anoDeInicio;
+	}
+	
+	public static Projeto of(long id, String nome, int anoDeInicio) {
+		return new Projeto(id, nome, anoDeInicio);
+	}
+	
+	public String toXML() {
+		return new XStream().toXML(this);
 	}
 
 	public long getId() {

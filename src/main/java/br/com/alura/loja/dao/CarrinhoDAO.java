@@ -23,6 +23,10 @@ public class CarrinhoDAO {
 		banco.put(1l, carrinho);
 	}
 	
+	public static CarrinhoDAO of() {
+		return new CarrinhoDAO();
+	}
+	
 	public void adiciona(Carrinho carrinho) {
 		long id = contador.incrementAndGet();
 		carrinho.setId(id);
